@@ -16,8 +16,13 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useFindAndModify: false
 });
 
-// routes
-app.use(require("public/api.js"));
+
+// api routes
+
+app.use(require("./public/api.js"));
+
+
+// basic routes
 
 app.get("/", (req, res) =>
   res.sendFile(path.join(__dirname, "public/index.html"))
